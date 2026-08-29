@@ -63,14 +63,14 @@ const Card = ({ project, index, total, progress }) => {
         <div className="flex gap-3 sm:gap-4">
           <div className="flex flex-col gap-3 sm:gap-4" style={{ width: "40%" }}>
             <img
-              src={`/projects/${project.slug}_top.jpg`}
+              src={`${process.env.PUBLIC_URL}/projects/${project.slug}_top.jpg`}
               alt={`${project.name} preview`}
               loading="lazy"
               className="w-full object-cover object-top rounded-[24px] sm:rounded-[50px] md:rounded-[60px]"
               style={{ height: "clamp(130px, 16vw, 230px)" }}
             />
             <img
-              src={`/projects/${project.slug}_mid.jpg`}
+              src={`${process.env.PUBLIC_URL}/projects/${project.slug}_mid.jpg`}
               alt={`${project.name} section`}
               loading="lazy"
               className="w-full object-cover rounded-[24px] sm:rounded-[50px] md:rounded-[60px]"
@@ -79,7 +79,7 @@ const Card = ({ project, index, total, progress }) => {
           </div>
           <div style={{ width: "60%" }}>
             <img
-              src={`/projects/${project.slug}_tall.jpg`}
+              src={`${process.env.PUBLIC_URL}/projects/${project.slug}_tall.jpg`}
               alt={`${project.name} full view`}
               loading="lazy"
               className="w-full h-full object-cover object-top rounded-[24px] sm:rounded-[50px] md:rounded-[60px]"

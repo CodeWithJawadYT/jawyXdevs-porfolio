@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { PROJECTS } from "@/data/projects";
 
-const ROW1 = PROJECTS.map((p) => ({ src: `/projects/${p.slug}_top.jpg`, alt: p.name }));
-const ROW2 = PROJECTS.map((p) => ({ src: `/projects/${p.slug}_mid.jpg`, alt: p.name }));
+const ROW1 = PROJECTS.map((p) => ({ src: `${process.env.PUBLIC_URL}/projects/${p.slug}_top.jpg`, alt: p.name }));
+const ROW2 = PROJECTS.map((p) => ({ src: `${process.env.PUBLIC_URL}/projects/${p.slug}_mid.jpg`, alt: p.name }));
 
 const repeat = (arr, times) => Array.from({ length: times }, () => arr).flat();
 

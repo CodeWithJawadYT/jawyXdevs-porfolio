@@ -44,7 +44,7 @@ const Hero3DVisual = () => {
           }}
         />
         <img
-          src="/assets/hero-chrome.png"
+          src={`${process.env.PUBLIC_URL}/assets/hero-chrome.png`}
           alt="Futuristic 3D chrome digital object"
           className="relative w-full select-none pointer-events-none"
           draggable={false}

@@ -32,6 +32,7 @@ Build a 3D Creator portfolio landing page for "JawyXdevs" — dark theme (#0C0C0
 - Services hover: sliding dark highlight per row with text color inversion + cursor reaction
 - Scroll progress: fixed top gradient bar (magenta→purple→orange) driven by useScroll spring
 - SEO: meta description, OG + Twitter card tags (absolute URLs via %REACT_APP_BACKEND_URL%), branded 1200x630 og-image.jpg composed with Kanit + chrome visual
+- GitHub Pages deploy fix: homepage "." (relative build paths), PUBLIC_URL-prefixed public assets, .github/workflows/deploy.yml (build + actions/deploy-pages). User must push and set repo Settings > Pages > Source: GitHub Actions.
 
 ## Backlog
 - (empty)
