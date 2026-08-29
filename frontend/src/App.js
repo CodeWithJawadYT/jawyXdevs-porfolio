@@ -10,6 +10,7 @@ import ProjectsSection from "@/sections/ProjectsSection";
 import ContactFooter from "@/sections/ContactFooter";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Preloader } from "@/components/Preloader";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 function App() {
   const lenisRef = useRef(null);
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className="App min-h-screen" style={{ backgroundColor: "#0C0C0C", overflowX: "clip" }}>
+      <ScrollProgress />
       <CustomCursor />
       <AnimatePresence>{intro && <Preloader onDone={finishIntro} />}</AnimatePresence>
       <HeroSection introDelay={introDelay} />

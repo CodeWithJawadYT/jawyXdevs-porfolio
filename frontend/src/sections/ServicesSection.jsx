@@ -55,24 +55,29 @@ export default function ServicesSection() {
           <FadeIn key={service.number} delay={i * 0.1} y={30}>
             <div
               data-testid={`service-item-${service.number}`}
-              className="flex items-start gap-6 sm:gap-10 md:gap-14 py-8 sm:py-10 md:py-12"
+              data-cursor="hover"
+              className="group relative overflow-hidden flex items-start gap-6 sm:gap-10 md:gap-14 py-8 sm:py-10 md:py-12 px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-2xl"
               style={{ borderBottom: "1px solid rgba(12, 12, 12, 0.15)" }}
             >
+              <div
+                className="absolute inset-0 bg-[#0C0C0C] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                style={{ transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)" }}
+              />
               <span
-                className="font-black text-[#0C0C0C] leading-none shrink-0"
+                className="relative z-10 font-black text-[#0C0C0C] group-hover:text-[#D7E2EA] transition-colors duration-500 leading-none shrink-0"
                 style={{ fontSize: "clamp(3rem, 10vw, 140px)" }}
               >
                 {service.number}
               </span>
-              <div className="flex flex-col gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <div className="relative z-10 flex flex-col gap-3 sm:gap-4 pt-2 sm:pt-4 group-hover:translate-x-2 transition-transform duration-500">
                 <h3
-                  className="font-medium uppercase text-[#0C0C0C]"
+                  className="font-medium uppercase text-[#0C0C0C] group-hover:text-[#D7E2EA] transition-colors duration-500"
                   style={{ fontSize: "clamp(1rem, 2.2vw, 2.1rem)" }}
                 >
                   {service.name}
                 </h3>
                 <p
-                  className="font-light leading-relaxed max-w-2xl text-[#0C0C0C]"
+                  className="font-light leading-relaxed max-w-2xl text-[#0C0C0C] group-hover:text-[#D7E2EA] transition-colors duration-500"
                   style={{ fontSize: "clamp(0.85rem, 1.6vw, 1.25rem)", opacity: 0.6 }}
                 >
                   {service.description}

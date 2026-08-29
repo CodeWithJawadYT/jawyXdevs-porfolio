@@ -29,5 +29,9 @@ Build a 3D Creator portfolio landing page for "JawyXdevs" — dark theme (#0C0C0
 - Cinematic preloader on first visit (masked JAWYXDEVS reveal, gradient progress bar, % counter, slide-up exit, sessionStorage-gated, hero anims delayed after intro)
 - Mobile polish: centered hero visual (fixed framer transform override), responsive marquee tiles (280x180 mobile), smaller card radii/buttons/stack offsets, tightened footer spacing
 
+- Services hover: sliding dark highlight per row with text color inversion + cursor reaction
+- Scroll progress: fixed top gradient bar (magenta→purple→orange) driven by useScroll spring
+- SEO: meta description, OG + Twitter card tags (absolute URLs via %REACT_APP_BACKEND_URL%), branded 1200x630 og-image.jpg composed with Kanit + chrome visual
+
 ## Backlog
-- P2: SEO meta/OG tags
+- (empty)
