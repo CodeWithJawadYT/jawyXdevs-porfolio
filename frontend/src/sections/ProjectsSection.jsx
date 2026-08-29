@@ -1,9 +1,21 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { PROJECTS } from "@/data/projects";
 import { LiveProjectButton } from "@/components/LiveProjectButton";
 
+const useIsMd = () => {
+  const [isMd, setIsMd] = useState(() => window.matchMedia("(min-width: 768px)").matches);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const fn = (e) => setIsMd(e.matches);
+    mq.addEventListener("change", fn);
+    return () => mq.removeEventListener("change", fn);
+  }, []);
+  return isMd;
+};
+
 const Card = ({ project, index, total, progress }) => {
+  const isMd = useIsMd();
   const targetScale = 1 - (total - 1 - index) * 0.03;
   const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
@@ -11,10 +23,10 @@ const Card = ({ project, index, total, progress }) => {
     <div className="h-[85vh] flex items-start justify-center">
       <motion.div
         data-testid={`project-card-${project.number}`}
-        className="sticky w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] p-4 sm:p-6 md:p-8"
+        className="sticky w-full rounded-[32px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] p-4 sm:p-6 md:p-8"
         style={{
           scale,
-          top: `calc(6rem + ${index * 28}px)`,
+          top: `calc(${isMd ? "6rem" : "4.5rem"} + ${index * (isMd ? 28 : 12)}px)`,
           backgroundColor: "#0C0C0C",
           willChange: "transform",
         }}
@@ -54,14 +66,14 @@ const Card = ({ project, index, total, progress }) => {
               src={`/projects/${project.slug}_top.jpg`}
               alt={`${project.name} preview`}
               loading="lazy"
-              className="w-full object-cover object-top rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
+              className="w-full object-cover object-top rounded-[24px] sm:rounded-[50px] md:rounded-[60px]"
               style={{ height: "clamp(130px, 16vw, 230px)" }}
             />
             <img
               src={`/projects/${project.slug}_mid.jpg`}
               alt={`${project.name} section`}
               loading="lazy"
-              className="w-full object-cover rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
+              className="w-full object-cover rounded-[24px] sm:rounded-[50px] md:rounded-[60px]"
               style={{ height: "clamp(160px, 22vw, 340px)" }}
             />
           </div>
@@ -70,7 +82,7 @@ const Card = ({ project, index, total, progress }) => {
               src={`/projects/${project.slug}_tall.jpg`}
               alt={`${project.name} full view`}
               loading="lazy"
-              className="w-full h-full object-cover object-top rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
+              className="w-full h-full object-cover object-top rounded-[24px] sm:rounded-[50px] md:rounded-[60px]"
             />
           </div>
         </div>
@@ -101,7 +113,7 @@ export default function ProjectsSection() {
         Projects
       </h2>
 
-      <div ref={ref} className="max-w-6xl mx-auto pb-[48vh]">
+      <div ref={ref} className="max-w-6xl mx-auto pb-[8vh] md:pb-[48vh]">
         {PROJECTS.map((project, i) => (
           <Card
             key={project.number}

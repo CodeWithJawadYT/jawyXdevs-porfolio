@@ -11,8 +11,7 @@ const Tile = ({ img }) => (
     src={img.src}
     alt={img.alt}
     loading="lazy"
-    className="rounded-2xl object-cover shrink-0"
-    style={{ width: 420, height: 270 }}
+    className="rounded-2xl object-cover shrink-0 w-[280px] h-[180px] sm:w-[420px] sm:h-[270px]"
   />
 );
 

@@ -25,8 +25,9 @@ Build a 3D Creator portfolio landing page for "JawyXdevs" — dark theme (#0C0C0
 - Projects: 6 sticky-stacking cards (scale-down effect), real screenshots (2 stacked + 1 tall), LiveProjectButton opening real URLs in new tab
 - Contact footer: "Let's Build" heading, phone/email links, bottom bar
 - Lenis smooth momentum scrolling, Kanit font, page title set
+- Custom glowing cursor (dot + magenta ring, reacts on links/buttons/cards, desktop pointer-fine only)
+- Cinematic preloader on first visit (masked JAWYXDEVS reveal, gradient progress bar, % counter, slide-up exit, sessionStorage-gated, hero anims delayed after intro)
+- Mobile polish: centered hero visual (fixed framer transform override), responsive marquee tiles (280x180 mobile), smaller card radii/buttons/stack offsets, tightened footer spacing
 
 ## Backlog
-- P2: mobile fine-tuning pass beyond default responsive classes
-- P2: custom cursor / preloader moment
 - P2: SEO meta/OG tags

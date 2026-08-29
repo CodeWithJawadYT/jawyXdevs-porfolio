@@ -37,6 +37,14 @@ html.lenis body {
     height: auto;
 }
 
+@media (pointer: fine) {
+    body,
+    a,
+    button {
+        cursor: none;
+    }
+}
+
 .lenis.lenis-smooth {
     scroll-behavior: auto !important;
 }

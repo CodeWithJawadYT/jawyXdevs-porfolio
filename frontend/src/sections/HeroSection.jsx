@@ -31,8 +31,8 @@ const Hero3DVisual = () => {
     <div style={{ perspective: "1200px" }} onMouseMove={onMove} onMouseLeave={onLeave}>
       <motion.div
         style={{ rotateX, rotateY, transformStyle: "preserve-3d", willChange: "transform" }}
-        animate={{ y: [0, -16, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ y: [0, -16, 0], rotate: [0, 1.5, 0, -1.5, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         className="relative"
       >
         <div
@@ -54,7 +54,7 @@ const Hero3DVisual = () => {
   );
 };
 
-export default function HeroSection() {
+export default function HeroSection({ introDelay = 0 }) {
   const scrollTo = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -66,7 +66,7 @@ export default function HeroSection() {
       className="relative h-screen flex flex-col"
       style={{ overflowX: "clip" }}
     >
-      <FadeIn as="nav" delay={0} y={-20} className="relative z-20">
+      <FadeIn as="nav" delay={introDelay} y={-20} className="relative z-20">
         <div className="flex justify-between px-6 md:px-10 pt-6 md:pt-8">
           {NAV_LINKS.map((link) => (
             <a
@@ -83,7 +83,7 @@ export default function HeroSection() {
       </FadeIn>
 
       <div className="overflow-hidden">
-        <FadeIn delay={0.15} y={40}>
+        <FadeIn delay={introDelay + 0.15} y={40}>
           <h1
             data-testid="hero-heading"
             className="hero-heading w-full text-center font-black uppercase tracking-tight leading-none whitespace-nowrap text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[17.5vw] mt-6 sm:mt-4 md:-mt-5"
@@ -93,23 +93,21 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      <FadeIn
-        delay={0.6}
-        y={30}
-        className="absolute left-1/2 -translate-x-1/2 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0"
-      >
-        <Magnet
-          padding={150}
-          strength={3}
-          activeTransition="transform 0.3s ease-out"
-          inactiveTransition="transform 0.6s ease-in-out"
-        >
-          <Hero3DVisual />
-        </Magnet>
-      </FadeIn>
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px] top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0">
+        <FadeIn delay={introDelay + 0.6} y={30}>
+          <Magnet
+            padding={150}
+            strength={3}
+            activeTransition="transform 0.3s ease-out"
+            inactiveTransition="transform 0.6s ease-in-out"
+          >
+            <Hero3DVisual />
+          </Magnet>
+        </FadeIn>
+      </div>
 
       <div className="relative z-20 mt-auto flex justify-between items-end px-6 md:px-10 pb-7 sm:pb-8 md:pb-10">
-        <FadeIn delay={0.35} y={20}>
+        <FadeIn delay={introDelay + 0.35} y={20}>
           <p
             data-testid="hero-tagline"
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
@@ -118,7 +116,7 @@ export default function HeroSection() {
             Elite Web Engineering &amp; Digital Experiences
           </p>
         </FadeIn>
-        <FadeIn delay={0.5} y={20}>
+        <FadeIn delay={introDelay + 0.5} y={20}>
           <ContactButton />
         </FadeIn>
       </div>
